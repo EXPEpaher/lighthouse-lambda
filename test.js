@@ -16,10 +16,9 @@ exports.handler = function (event, context, callback) {
         timing: results.lhr.timing,
         userAgent: results.lhr.userAgent,
         lighthouseVersion: results.lhr.lighthouseVersion
-      }))
-    })
-    .catch((error) => {
-      return chrome.kill().then(() => callback(error))
+      })).catch((error) => {
+          return chrome.kill().then(() => callback(error))
+      })
     })
     .catch(callback)
 }
